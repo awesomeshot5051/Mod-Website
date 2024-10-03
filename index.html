@@ -197,6 +197,12 @@
     fetchFileLastUpdated('Mods/Mob Farms/mob_farms-1.21.1-1.0.1.jar', 'MobFarms');
     fetchFileLastUpdated('Mods/Shears Disable Tripwires/shearstripwiremod-0.0.1.jar', 'ShearsDisable');
 });
+function downloadMod(url, button) {
+    window.location.href = url; // Redirects to the download URL
+    let countElement = button.closest('tr').querySelector('.download-count'); // Finds the download count cell
+    let count = parseInt(countElement.textContent); // Gets the current download count
+    countElement.textContent = count + 1; // Increments the download count
+}
 
 function fetchFileLastUpdated(filePath, modName) {
     const owner = 'awesomeshot5051';
