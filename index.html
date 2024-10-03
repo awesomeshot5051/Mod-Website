@@ -7,20 +7,22 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            background-image: url('https://raw.githubusercontent.com/awesomeshot5051/Mod-Website/21273ef07340a7af5462d0bb4b18b1e2b43bdc78/Pictures/cool-background.png');
+            background-size: cover;
             margin: 0;
             padding: 20px;
+            color: white; /* Ensure text is readable on the background */
         }
 
         h1 {
             text-align: center;
-            color: #333;
+            color: #fff; /* Change to white for visibility */
         }
 
         /* Tab Styles */
         .tab {
             overflow: hidden;
-            background-color: #333;
+            background-color: rgba(51, 51, 51, 0.8); /* Semi-transparent background for tabs */
             display: flex;
             justify-content: center;
         }
@@ -47,7 +49,7 @@
         .tab-content {
             display: none;
             padding: 20px;
-            background-color: white;
+            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent background for content */
             border: 1px solid #ccc;
             margin-top: 10px;
         }
@@ -62,11 +64,22 @@
         a:hover {
             text-decoration: underline;
         }
+
+        /* Image style */
+        .mod-image {
+            display: block;
+            margin: 20px auto; /* Center the image */
+            max-width: 100%; /* Responsive image */
+            height: auto;
+        }
     </style>
 </head>
 <body>
 
 <h1>Mod Downloads</h1>
+
+<!-- ModFarms Image -->
+<img src="https://raw.githubusercontent.com/awesomeshot5051/Mod-Website/65b4d54012af98c01be1f0ea32f55f6c70ede674/Pictures/MobFarms.jpg" alt="Mob Farms Mod" class="mod-image">
 
 <div class="tab">
     <button class="tablinks" onclick="openMod(event, 'Mob Farms')">Mob Farms</button>
@@ -75,7 +88,7 @@
 
 <!-- Mod 1 content -->
 <div id="Mob Farms" class="tab-content">
-    <h2>Mod 1</h2>
+    <h2>Mob Farms</h2>
     <p>Click the link below to download:</p>
     <ul>
         <li><a href="https://github.com/awesomeshot5051/MobFarms/raw/df6885d4311a5cd49d2435212452a1f5a31efdeb/mob_farms-1.21.1-1.0.1.jar" download>Download Mob Farms (.jar)</a></li>
@@ -84,7 +97,7 @@
 
 <!-- Mod 2 content -->
 <div id="Shears Disable" class="tab-content">
-    <h2>Shears Disable Tripwires Again</h2></h2>
+    <h2>Shears Disable Tripwires Again</h2>
     <p>Click the link below to download:</p>
     <ul>
         <li><a href="https://github.com/awesomeshot5051/Mod-Website/raw/refs/heads/main/Mods/Shears%20Disable%20Tripwires/shearstripwiremod-0.0.1.jar" download>Download Shears Disable Tripwires (.jar)</a></li>
