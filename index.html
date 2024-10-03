@@ -84,34 +84,15 @@
             background-color: #45a049;
         }
 
-        .pagination {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-        }
-
-        .pagination button {
-            background-color: rgba(74, 74, 74, 0.8);
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            margin: 0 4px;
-            cursor: pointer;
-        }
-
-        .pagination button:hover {
-            background-color: rgba(90, 90, 90, 0.8);
-        }
-
-        .pagination button.active {
-            background-color: rgba(106, 106, 106, 0.8);
-        }
-
         .mod-image {
             display: block;
             margin: 20px auto;
             max-width: 100%;
             height: auto;
+        }
+
+        .repository-list {
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -120,11 +101,11 @@
 <h1>Mod Downloads</h1>
 
 <div class="tab">
-    <button class="tablinks" onclick="openMod(event, 'Mob Farms')">Mob Farms</button>
-    <button class="tablinks" onclick="openMod(event, 'Shears Disable')">Shears Disable Tripwires</button>
+    <button class="tablinks" onclick="openMod(event, 'MobFarms')">Mob Farms</button>
+    <button class="tablinks" onclick="openMod(event, 'ShearsDisable')">Shears Disable Tripwires</button>
 </div>
 
-<div id="Mob Farms" class="tab-content">
+<div id="MobFarms" class="tab-content">
     <h2>Mob Farms</h2>
     <img src="https://raw.githubusercontent.com/awesomeshot5051/Mod-Website/65b4d54012af98c01be1f0ea32f55f6c70ede674/Pictures/MobFarms.jpg" alt="Mob Farms Mod" class="mod-image">
     <table>
@@ -148,19 +129,19 @@
         </tbody>
     </table>
     <div class="pagination">
-        <button>&lt;&lt;</button>
-        <button>&lt;</button>
+<!--        <button>&lt;&lt;</button>-->
+<!--        <button>&lt;</button>-->
         <button class="active">1</button>
-        <button>2</button>
-        <button>3</button>
-        <button>4</button>
-        <button>5</button>
-        <button>&gt;</button>
-        <button>&gt;&gt;</button>
+<!--        <button>2</button>-->
+<!--        <button>3</button>-->
+<!--        <button>4</button>-->
+<!--        <button>5</button>-->
+<!--        <button>&gt;</button>-->
+<!--        <button>&gt;&gt;</button>-->
     </div>
 </div>
 
-<div id="Shears Disable" class="tab-content">
+<div id="ShearsDisable" class="tab-content">
     <h2>Shears Disable Tripwires</h2>
     <table>
         <thead>
@@ -186,12 +167,12 @@
         <button>&lt;&lt;</button>
         <button>&lt;</button>
         <button class="active">1</button>
-        <button>2</button>
-        <button>3</button>
-        <button>4</button>
-        <button>5</button>
-        <button>&gt;</button>
-        <button>&gt;&gt;</button>
+<!--        <button>2</button>-->
+<!--        <button>3</button>-->
+<!--        <button>4</button>-->
+<!--        <button>5</button>-->
+<!--        <button>&gt;</button>-->
+<!--        <button>&gt;&gt;</button>-->
     </div>
 </div>
 
@@ -211,33 +192,33 @@
     }
 
     document.addEventListener("DOMContentLoaded", function() {
-        document.querySelector(".tablinks").click();
-        fetchReleaseDates();
-    });
+    document.querySelector(".tablinks").click();
+    // Update the last updated date for each file
+    fetchFileLastUpdated('Mods/Mob Farms/mob_farms-1.21.1-1.0.1.jar', 'MobFarms');
+    fetchFileLastUpdated('Mods/Shears Disable Tripwires/shearstripwiremod-0.0.1.jar', 'ShearsDisable');
+});
 
-    function fetchReleaseDates() {
-        document.querySelectorAll('.download-btn').forEach(button => {
-            const url = button.getAttribute('onclick').match(/'([^']+)'/)[1];
-            fetch(url, { method: 'HEAD' })
-                .then(response => {
-                    const lastModified = response.headers.get('last-modified');
-                    if (lastModified) {
-                        const date = new Date(lastModified);
-                        button.closest('tr').querySelector('.release-date').textContent = date.toLocaleDateString();
-                    }
-                })
-                .catch(error => console.error('Error fetching release date:', error));
-        });
-    }
+function fetchFileLastUpdated(filePath, modName) {
+    const owner = 'awesomeshot5051';
+    const repo = 'Mod-Website';
 
-    function downloadMod(url, button) {
-        window.location.href = url;
-        let countElement = button.closest('tr').querySelector('.download-count');
-        let count = parseInt(countElement.textContent);
-        countElement.textContent = count + 1;
-        // In a real application, you would send this information to a server to persist the count
-    }
+    // Fetch the commit data for the specific file
+    fetch(`https://api.github.com/repos/${owner}/${repo}/commits?path=${filePath}`)
+        .then(response => response.json())
+        .then(commits => {
+            if (commits.length > 0) {
+                const lastUpdated = new Date(commits[0].commit.author.date).toLocaleDateString();
+                // Use the modName to identify the correct table row for release date
+                const countElement = document.querySelector(`#${modName} .release-date`);
+                countElement.textContent = lastUpdated; // Update the release date
+            } else {
+                console.error(`No commits found for file: ${filePath}`);
+            }
+        })
+        .catch(error => console.error('Error fetching commit data:', error));
+}
 </script>
+
 
 </body>
 </html>
