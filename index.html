@@ -9,20 +9,19 @@
             font-family: Arial, sans-serif;
             background-image: url('https://raw.githubusercontent.com/awesomeshot5051/Mod-Website/21273ef07340a7af5462d0bb4b18b1e2b43bdc78/Pictures/cool-background.png');
             background-size: cover;
+            background-attachment: fixed;
             margin: 0;
             padding: 20px;
-            color: white; /* Ensure text is readable on the background */
+            color: white;
         }
 
         h1 {
             text-align: center;
-            color: #fff; /* Change to white for visibility */
         }
 
-        /* Tab Styles */
         .tab {
             overflow: hidden;
-            background-color: rgba(51, 51, 51, 0.8); /* Semi-transparent background for tabs */
+            background-color: rgba(44, 44, 44, 0.8);
             display: flex;
             justify-content: center;
         }
@@ -37,39 +36,81 @@
         }
 
         .tab button:hover {
-            background-color: #ddd;
-            color: black;
+            background-color: rgba(58, 58, 58, 0.8);
         }
 
         .tab button.active {
-            background-color: #555;
+            background-color: rgba(74, 74, 74, 0.8);
         }
 
-        /* Tab content */
         .tab-content {
             display: none;
             padding: 20px;
-            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent background for content */
-            border: 1px solid #ccc;
+            background-color: rgba(44, 44, 44, 0.8);
+            border: 1px solid #3a3a3a;
             margin-top: 10px;
         }
 
-        /* Links style */
-        a {
-            color: #1e90ff;
-            text-decoration: none;
-            font-size: 1.1em;
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
         }
 
-        a:hover {
-            text-decoration: underline;
+        th, td {
+            text-align: left;
+            padding: 12px;
+            border-bottom: 1px solid #3a3a3a;
         }
 
-        /* Image style */
+        th {
+            background-color: rgba(74, 74, 74, 0.8);
+        }
+
+        tr:hover {
+            background-color: rgba(58, 58, 58, 0.8);
+        }
+
+        .download-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 6px 12px;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .download-btn:hover {
+            background-color: #45a049;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .pagination button {
+            background-color: rgba(74, 74, 74, 0.8);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            margin: 0 4px;
+            cursor: pointer;
+        }
+
+        .pagination button:hover {
+            background-color: rgba(90, 90, 90, 0.8);
+        }
+
+        .pagination button.active {
+            background-color: rgba(106, 106, 106, 0.8);
+        }
+
         .mod-image {
             display: block;
-            margin: 20px auto; /* Center the image */
-            max-width: 100%; /* Responsive image */
+            margin: 20px auto;
+            max-width: 100%;
             height: auto;
         }
     </style>
@@ -78,57 +119,124 @@
 
 <h1>Mod Downloads</h1>
 
-<!-- ModFarms Image -->
-<img src="https://raw.githubusercontent.com/awesomeshot5051/Mod-Website/65b4d54012af98c01be1f0ea32f55f6c70ede674/Pictures/MobFarms.jpg" alt="Mob Farms Mod" class="mod-image">
-
 <div class="tab">
     <button class="tablinks" onclick="openMod(event, 'Mob Farms')">Mob Farms</button>
     <button class="tablinks" onclick="openMod(event, 'Shears Disable')">Shears Disable Tripwires</button>
 </div>
 
-<!-- Mod 1 content -->
 <div id="Mob Farms" class="tab-content">
     <h2>Mob Farms</h2>
-    <p>Click the link below to download:</p>
-    <ul>
-        <li><a href="https://github.com/awesomeshot5051/MobFarms/raw/df6885d4311a5cd49d2435212452a1f5a31efdeb/mob_farms-1.21.1-1.0.1.jar" download>Download Mob Farms (.jar)</a></li>
-    </ul>
+    <img src="https://raw.githubusercontent.com/awesomeshot5051/Mod-Website/65b4d54012af98c01be1f0ea32f55f6c70ede674/Pictures/MobFarms.jpg" alt="Mob Farms Mod" class="mod-image">
+    <table>
+        <thead>
+        <tr>
+            <th>File Name</th>
+            <th>Release Date</th>
+            <th>Mod Loader</th>
+            <th>Downloads</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>mob_farms-1.21.1-1.0.1.jar</td>
+            <td class="release-date">Loading...</td>
+            <td>NeoForge</td>
+            <td class="download-count">0</td>
+            <td><button class="download-btn" onclick="downloadMod('https://github.com/awesomeshot5051/MobFarms/raw/df6885d4311a5cd49d2435212452a1f5a31efdeb/mob_farms-1.21.1-1.0.1.jar', this)">Download</button></td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="pagination">
+        <button>&lt;&lt;</button>
+        <button>&lt;</button>
+        <button class="active">1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>4</button>
+        <button>5</button>
+        <button>&gt;</button>
+        <button>&gt;&gt;</button>
+    </div>
 </div>
 
-<!-- Mod 2 content -->
 <div id="Shears Disable" class="tab-content">
-    <h2>Shears Disable Tripwires Again</h2>
-    <p>Click the link below to download:</p>
-    <ul>
-        <li><a href="https://github.com/awesomeshot5051/Mod-Website/raw/refs/heads/main/Mods/Shears%20Disable%20Tripwires/shearstripwiremod-0.0.1.jar" download>Download Shears Disable Tripwires (.jar)</a></li>
-    </ul>
+    <h2>Shears Disable Tripwires</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>File Name</th>
+            <th>Release Date</th>
+            <th>Mod Loader</th>
+            <th>Downloads</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>shearstripwiremod-0.0.1.jar</td>
+            <td class="release-date">Loading...</td>
+            <td>NeoForge</td>
+            <td class="download-count">0</td>
+            <td><button class="download-btn" onclick="downloadMod('https://github.com/awesomeshot5051/Mod-Website/raw/refs/heads/main/Mods/Shears%20Disable%20Tripwires/shearstripwiremod-0.0.1.jar', this)">Download</button></td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="pagination">
+        <button>&lt;&lt;</button>
+        <button>&lt;</button>
+        <button class="active">1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>4</button>
+        <button>5</button>
+        <button>&gt;</button>
+        <button>&gt;&gt;</button>
+    </div>
 </div>
 
 <script>
-    // Function to show the selected tab and hide others
     function openMod(evt, modName) {
-        // Get all elements with class="tab-content" and hide them
         var i, tabcontent, tablinks;
         tabcontent = document.getElementsByClassName("tab-content");
         for (i = 0; i < tabcontent.length; i++) {
             tabcontent[i].style.display = "none";
         }
-
-        // Get all elements with class="tablinks" and remove the class "active"
         tablinks = document.getElementsByClassName("tablinks");
         for (i = 0; i < tablinks.length; i++) {
             tablinks[i].className = tablinks[i].className.replace(" active", "");
         }
-
-        // Show the current tab, and add an "active" class to the button that opened the tab
         document.getElementById(modName).style.display = "block";
         evt.currentTarget.className += " active";
     }
 
-    // Set the default tab to open
     document.addEventListener("DOMContentLoaded", function() {
         document.querySelector(".tablinks").click();
+        fetchReleaseDates();
     });
+
+    function fetchReleaseDates() {
+        document.querySelectorAll('.download-btn').forEach(button => {
+            const url = button.getAttribute('onclick').match(/'([^']+)'/)[1];
+            fetch(url, { method: 'HEAD' })
+                .then(response => {
+                    const lastModified = response.headers.get('last-modified');
+                    if (lastModified) {
+                        const date = new Date(lastModified);
+                        button.closest('tr').querySelector('.release-date').textContent = date.toLocaleDateString();
+                    }
+                })
+                .catch(error => console.error('Error fetching release date:', error));
+        });
+    }
+
+    function downloadMod(url, button) {
+        window.location.href = url;
+        let countElement = button.closest('tr').querySelector('.download-count');
+        let count = parseInt(countElement.textContent);
+        countElement.textContent = count + 1;
+        // In a real application, you would send this information to a server to persist the count
+    }
 </script>
 
 </body>
