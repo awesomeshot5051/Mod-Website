@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mod Downloads</title>
+    <link rel="icon" href="" type="image/x-icon"> <!-- Add your favicon here -->
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -24,6 +25,14 @@
             background-color: rgba(44, 44, 44, 0.8);
             display: flex;
             justify-content: center;
+            flex-direction: column; /* Stack icon and buttons vertically */
+            align-items: center; /* Center the icon and buttons */
+        }
+
+        .tab img {
+            width: 50px; /* Set width for the tab icon */
+            height: auto; /* Maintain aspect ratio */
+            margin-bottom: 10px; /* Space between icon and buttons */
         }
 
         .tab button {
@@ -94,6 +103,30 @@
         .repository-list {
             margin-top: 20px;
         }
+
+        .pagination {
+            display: flex;
+            justify-content: center; /* Center the buttons */
+            margin-top: 20px;
+            padding: 10px 0; /* Add some padding */
+        }
+
+        .pagination button {
+            background-color: rgba(74, 74, 74, 0.8);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            margin: 0 4px;
+            cursor: pointer;
+        }
+
+        .pagination button:hover {
+            background-color: rgba(90, 90, 90, 0.8);
+        }
+
+        .pagination button.active {
+            background-color: rgba(106, 106, 106, 0.8);
+        }
     </style>
 </head>
 <body>
@@ -101,6 +134,7 @@
 <h1>Mod Downloads</h1>
 
 <div class="tab">
+<!--    <img src="path/to/your/tab-icon.png" alt="Tab Icon"> &lt;!&ndash; Optional: Tab Icon Image &ndash;&gt;-->
     <button class="tablinks" onclick="openMod(event, 'MobFarms')">Mob Farms</button>
     <button class="tablinks" onclick="openMod(event, 'ShearsDisable')">Shears Disable Tripwires</button>
 </div>
@@ -129,20 +163,11 @@
         </tbody>
     </table>
     <div class="pagination">
-<!--        <button>&lt;&lt;</button>-->
-<!--        <button>&lt;</button>-->
         <button class="active">1</button>
-<!--        <button>2</button>-->
-<!--        <button>3</button>-->
-<!--        <button>4</button>-->
-<!--        <button>5</button>-->
-<!--        <button>&gt;</button>-->
-<!--        <button>&gt;&gt;</button>-->
     </div>
 </div>
 
 <div id="ShearsDisable" class="tab-content">
-    <img src="https://github.com/awesomeshot5051/Mod-Website/blob/68f0987af7e2413db2ad561b5777d933f3d8d805/Pictures/shears.png" alt="Mob Farms Mod" class="mod-image">
     <h2>Shears Disable Tripwires</h2>
     <table>
         <thead>
@@ -165,17 +190,10 @@
         </tbody>
     </table>
     <div class="pagination">
-        <button>&lt;&lt;</button>
-        <button>&lt;</button>
         <button class="active">1</button>
-<!--        <button>2</button>-->
-<!--        <button>3</button>-->
-<!--        <button>4</button>-->
-<!--        <button>5</button>-->
-<!--        <button>&gt;</button>-->
-<!--        <button>&gt;&gt;</button>-->
     </div>
 </div>
+
 
 <script>
     function openMod(evt, modName) {
