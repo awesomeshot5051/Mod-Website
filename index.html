@@ -148,7 +148,7 @@
             <th>File Name</th>
             <th>Release Date</th>
             <th>Mod Loader</th>
-            <th>Downloads</th>
+<!--            <th>Downloads</th>-->
             <th>Action</th>
         </tr>
         </thead>
@@ -176,7 +176,7 @@
             <th>File Name</th>
             <th>Release Date</th>
             <th>Mod Loader</th>
-            <th>Downloads</th>
+<!--            <th>Downloads</th>-->
             <th>Action</th>
         </tr>
         </thead>
@@ -219,9 +219,9 @@
 });
 function downloadMod(url, button) {
     window.location.href = url; // Redirects to the download URL
-    let countElement = button.closest('tr').querySelector('.download-count'); // Finds the download count cell
-    let count = parseInt(countElement.textContent); // Gets the current download count
-    countElement.textContent = count + 1; // Increments the download count
+<!--    let countElement = button.closest('tr').querySelector('.download-count'); // Finds the download count cell-->
+<!--    let count = parseInt(countElement.textContent); // Gets the current download count-->
+<!--    countElement.textContent = count + 1; // Increments the download count-->
 }
 
 function fetchFileLastUpdated(filePath, modName) {
