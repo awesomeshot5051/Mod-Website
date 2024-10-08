@@ -155,18 +155,18 @@
         <tbody>
         <tr>
             <td>mob_farms-1.21.1-1.0.2.jar</td>
-            <td class="release-date">Loading...</td>
+            <td class="release-date" data-file="Mods/Mob Farms/mob_farms-1.21.1-1.0.2.jar">Loading...</td>
             <td>NeoForge</td>
-            <td><button class="download-btn" onclick="downloadMod('https://github.com/awesomeshot5051/Mod-Website/raw/refs/heads/main/Mods/Mob%20Farms/mob_farms-1.21.1-1.0.2.jar',this">Download</button> </td>
+            <td><button class="download-btn" onclick="downloadMod('https://github.com/awesomeshot5051/Mod-Website/raw/refs/heads/main/Mods/Mob%20Farms/mob_farms-1.21.1-1.0.2.jar',this)">Download</button></td>
         </tr>
         <tr>
             <td>mob_farms-1.21.1-1.0.1.jar</td>
-            <td class="release-date">Loading...</td>
+            <td class="release-date" data-file="Mods/Mob Farms/mob_farms-1.21.1-1.0.1.jar">Loading...</td>
             <td>NeoForge</td>
-<!--            <td class="download-count">0</td>-->
             <td><button class="download-btn" onclick="downloadMod('https://github.com/awesomeshot5051/MobFarms/raw/df6885d4311a5cd49d2435212452a1f5a31efdeb/mob_farms-1.21.1-1.0.1.jar', this)">Download</button></td>
         </tr>
         </tbody>
+
     </table>
     <div class="pagination">
         <button class="active">1</button>
@@ -231,25 +231,28 @@ function downloadMod(url, button) {
 <!--    countElement.textContent = count + 1; // Increments the download count-->
 }
 
-function fetchFileLastUpdated(filePath, modName) {
+function fetchFileLastUpdated(filePath) {
     const owner = 'awesomeshot5051';
     const repo = 'Mod-Website';
 
     // Fetch the commit data for the specific file
-    fetch(`https://api.github.com/repos/${owner}/${repo}/commits?path=${filePath}`)
+    fetch(`https://api.github.com/repos/${owner}/${repo}/commits?path=${encodeURIComponent(filePath)}`)
         .then(response => response.json())
         .then(commits => {
             if (commits.length > 0) {
                 const lastUpdated = new Date(commits[0].commit.author.date).toLocaleDateString();
-                // Use the modName to identify the correct table row for release date
-                const countElement = document.querySelector(`#${modName} .release-date`);
-                countElement.textContent = lastUpdated; // Update the release date
+                // Find the table cell with the matching data-file attribute
+                const releaseDateCell = document.querySelector(`.release-date[data-file="${filePath}"]`);
+                if (releaseDateCell) {
+                    releaseDateCell.textContent = lastUpdated; // Update the release date
+                }
             } else {
                 console.error(`No commits found for file: ${filePath}`);
             }
         })
         .catch(error => console.error('Error fetching commit data:', error));
 }
+
 </script>
 
 
