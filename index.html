@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mod Downloads</title>
-    <link rel="icon" href="https://raw.githubusercontent.com/awesomeshot5051/Mod-Website/8a1c2199dac4f8cf5cea056ef176feaa04db034f/Pictures/favicon_io/favicon.ico" type="image/x-icon"> <!-- Add your favicon here -->
+    <link rel="icon" href="https://raw.githubusercontent.com/awesomeshot5051/Mod-Website/8a1c2199dac4f8cf5cea056ef176feaa04db034f/Pictures/favicon_io/favicon.ico" type="image/x-icon">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -25,14 +25,7 @@
             background-color: rgba(44, 44, 44, 0.8);
             display: flex;
             justify-content: center;
-<!--            align-items: center; /* Align items vertically */-->
-            align-items: center; /* Center the icon and buttons */
-        }
-
-        .tab img {
-            width: 50px; /* Set width for the tab icon */
-            height: auto; /* Maintain aspect ratio */
-            margin-bottom: 10px; /* Space between icon and buttons */
+            align-items: center;
         }
 
         .tab button {
@@ -99,169 +92,108 @@
             max-width: 100%;
             height: auto;
         }
-
-        .repository-list {
-            margin-top: 20px;
-        }
-
-        .pagination {
-            display: flex;
-            justify-content: center; /* Center the buttons */
-            margin-top: 20px;
-            padding: 10px 0; /* Add some padding */
-        }
-
-        .pagination button {
-            background-color: rgba(74, 74, 74, 0.8);
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            margin: 0 4px;
-            cursor: pointer;
-        }
-
-        .pagination button:hover {
-            background-color: rgba(90, 90, 90, 0.8);
-        }
-
-        .pagination button.active {
-            background-color: rgba(106, 106, 106, 0.8);
-        }
     </style>
 </head>
 <body>
 
 <h1>Mod Downloads</h1>
 
-<div class="tab">
-<!--    <img src="path/to/your/tab-icon.png" alt="Tab Icon"> &lt;!&ndash; Optional: Tab Icon Image &ndash;&gt;-->
-    <button class="tablinks" onclick="openMod(event, 'MobFarms')">Mob Farms</button>
-    <button class="tablinks" onclick="openMod(event, 'ShearsDisable')">Shears Disable Tripwires</button>
-</div>
+<div class="tab" id="modTabs"></div>
 
-<div id="MobFarms" class="tab-content">
-    <h2>Mob Farms</h2>
-    <img src="https://raw.githubusercontent.com/awesomeshot5051/Mod-Website/65b4d54012af98c01be1f0ea32f55f6c70ede674/Pictures/MobFarms.jpg" alt="Mob Farms Mod" class="mod-image">
-    <table>
-        <thead>
-        <tr>
-            <th>File Name</th>
-            <th>Release Date</th>
-            <th>Mod Loader</th>
-<!--            <th>Downloads</th>-->
-            <th>Download</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td>mob_farms-1.21.1-1.0.3.jar</td>
-            <td class="release-date" data-file="Mods/Mob Farms/mob_farms-1.21.1-1.0.3.jar">Loading...</td>
-            <td>NeoForge</td>
-            <td><button class="download-btn" onclick="downloadMod('https://github.com/awesomeshot5051/Mod-Website/raw/refs/heads/main/Mods/Mob%20Farms/mob_farms-1.21.1-1.0.3.jar',this)">Download</button></td>
-        </tr>
-        <tr>
-            <td>mob_farms-1.21.1-1.0.2.jar</td>
-            <td class="release-date" data-file="Mods/Mob Farms/mob_farms-1.21.1-1.0.2.jar">Loading...</td>
-            <td>NeoForge</td>
-            <td><button class="download-btn" onclick="downloadMod('https://github.com/awesomeshot5051/Mod-Website/raw/refs/heads/main/Mods/Mob%20Farms/mob_farms-1.21.1-1.0.2.jar',this)">Download</button></td>
-        </tr>
-        <tr>
-            <td>mob_farms-1.21.1-1.0.1.jar</td>
-            <td class="release-date" data-file="Mods/Mob Farms/mob_farms-1.21.1-1.0.1.jar">Loading...</td>
-            <td>NeoForge</td>
-            <td><button class="download-btn" onclick="downloadMod('https://github.com/awesomeshot5051/Mod-Website/raw/refs/heads/main/Mods/Mob%20Farms/mob_farms-1.21.1-1.0.1.jar', this)">Download</button></td>
-        </tr>
-        </tbody>
-
-    </table>
-    <div class="pagination">
-        <button class="active">1</button>
-    </div>
-</div>
-
-<div id="ShearsDisable" class="tab-content">
-    <h2>Shears Disable Tripwires</h2>
-    <img src="https://raw.githubusercontent.com/awesomeshot5051/Mod-Website/8a1c2199dac4f8cf5cea056ef176feaa04db034f/Pictures/shears.png" alt="Shears Mod" class="mod-image">
-    <table>
-        <thead>
-        <tr>
-            <th>File Name</th>
-            <th>Release Date</th>
-            <th>Mod Loader</th>
-<!--            <th>Downloads</th>-->
-            <th>Download</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td>shearstripwiremod-0.0.1.jar</td>
-            <td class="release-date">Loading...</td>
-            <td>NeoForge</td>
-<!--            <td class="download-count">0</td>-->
-            <td><button class="download-btn" onclick="downloadMod('https://github.com/awesomeshot5051/Mod-Website/raw/refs/heads/main/Mods/Shears%20Disable%20Tripwires/shearstripwiremod-0.0.1.jar', this)">Download</button></td>
-        </tr>
-        </tbody>
-    </table>
-    <div class="pagination">
-        <button class="active">1</button>
-    </div>
-</div>
-
+<div id="modContent"></div>
 
 <script>
-    function openMod(evt, modName) {
-        var i, tabcontent, tablinks;
-        tabcontent = document.getElementsByClassName("tab-content");
-        for (i = 0; i < tabcontent.length; i++) {
-            tabcontent[i].style.display = "none";
-        }
-        tablinks = document.getElementsByClassName("tablinks");
-        for (i = 0; i < tablinks.length; i++) {
-            tablinks[i].className = tablinks[i].className.replace(" active", "");
-        }
-        document.getElementById(modName).style.display = "block";
-        evt.currentTarget.className += " active";
+    document.addEventListener("DOMContentLoaded", function () {
+        loadMods();
+    });
+
+    function loadMods() {
+        fetch('https://raw.githubusercontent.com/awesomeshot5051/Mod-Website/main/modManager/src/main/resources/mods.json')
+            .then(response => response.json())
+            .then(data => {
+                const mods = data.mods;
+                const modTabs = document.getElementById('modTabs');
+                const modContent = document.getElementById('modContent');
+
+                mods.forEach((mod, index) => {
+                    // Create tab button
+                    const tabButton = document.createElement('button');
+                    tabButton.className = 'tablinks';
+                    tabButton.textContent = mod.name;
+                    tabButton.onclick = function () {
+                        openMod(index);
+                    };
+                    modTabs.appendChild(tabButton);
+
+                    // Create tab content
+                    const tabContent = document.createElement('div');
+                    tabContent.className = 'tab-content';
+                    tabContent.id = `mod${index}`;
+
+                    // Add mod name and image
+                    const modTitle = document.createElement('h2');
+                    modTitle.textContent = mod.name;
+                    tabContent.appendChild(modTitle);
+
+                    const modImage = document.createElement('img');
+                    modImage.src = mod.image;
+                    modImage.alt = `${mod.name} Mod`;
+                    modImage.className = 'mod-image';
+                    tabContent.appendChild(modImage);
+
+                    // Add mod file table
+                    const table = document.createElement('table');
+                    const thead = document.createElement('thead');
+                    thead.innerHTML = `
+                        <tr>
+                            <th>File Name</th>
+                            <th>Release Date</th>
+                            <th>Mod Loader</th>
+                            <th>Download</th>
+                        </tr>
+                    `;
+                    table.appendChild(thead);
+
+                    const tbody = document.createElement('tbody');
+                    mod.files.forEach(file => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td>${file.fileName}</td>
+                            <td class="release-date" data-file="${file.fileName}">${file.releaseDate}</td>
+                            <td>${file.modLoader}</td>
+                            <td><button class="download-btn" onclick="downloadMod('${file.downloadUrl}')">Download</button></td>
+                        `;
+                        tbody.appendChild(row);
+                    });
+                    table.appendChild(tbody);
+                    tabContent.appendChild(table);
+
+                    modContent.appendChild(tabContent);
+                });
+
+                // Activate the first mod tab
+                document.querySelector('.tablinks').click();
+            })
+            .catch(error => console.error('Error loading mod data:', error));
     }
 
-    document.addEventListener("DOMContentLoaded", function() {
-    document.querySelector(".tablinks").click();
-    // Update the last updated date for each file
-    fetchFileLastUpdated('Mods/Mob Farms/mob_farms-1.21.1-1.0.1.jar', 'MobFarms');
-    fetchFileLastUpdated('Mods/Mob Farms/mob_farms-1.21.1-1.0.2.jar', 'MobFarms');
-    fetchFileLastUpdated('Mods/Mob Farms/mob_farms-1.21.1-1.0.3.jar', 'MobFarms');
-    fetchFileLastUpdated('Mods/Shears Disable Tripwires/shearstripwiremod-0.0.1.jar', 'ShearsDisable');
-});
-function downloadMod(url, button) {
-    window.location.href = url; // Redirects to the download URL
-<!--    let countElement = button.closest('tr').querySelector('.download-count'); // Finds the download count cell-->
-<!--    let count = parseInt(countElement.textContent); // Gets the current download count-->
-<!--    countElement.textContent = count + 1; // Increments the download count-->
-}
+    function openMod(index) {
+        const tabContents = document.getElementsByClassName('tab-content');
+        for (let i = 0; i < tabContents.length; i++) {
+            tabContents[i].style.display = 'none';
+        }
+        const tabLinks = document.getElementsByClassName('tablinks');
+        for (let i = 0; i < tabLinks.length; i++) {
+            tabLinks[i].classList.remove('active');
+        }
+        document.getElementById(`mod${index}`).style.display = 'block';
+        tabLinks[index].classList.add('active');
+    }
 
-function fetchFileLastUpdated(filePath) {
-    const owner = 'awesomeshot5051';
-    const repo = 'Mod-Website';
-
-    // Fetch the commit data for the specific file
-    fetch(`https://api.github.com/repos/${owner}/${repo}/commits?path=${encodeURIComponent(filePath)}`)
-        .then(response => response.json())
-        .then(commits => {
-            if (commits.length > 0) {
-                const lastUpdated = new Date(commits[0].commit.author.date).toLocaleDateString();
-                // Find the table cell with the matching data-file attribute
-                const releaseDateCell = document.querySelector(`.release-date[data-file="${filePath}"]`);
-                if (releaseDateCell) {
-                    releaseDateCell.textContent = lastUpdated; // Update the release date
-                }
-            } else {
-                console.error(`No commits found for file: ${filePath}`);
-            }
-        })
-        .catch(error => console.error('Error fetching commit data:', error));
-}
-
+    function downloadMod(url) {
+        window.location.href = url;
+    }
 </script>
-
 
 </body>
 </html>
