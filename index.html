@@ -108,7 +108,7 @@
     });
 
     function loadMods() {
-        fetch('https://raw.githubusercontent.com/awesomeshot5051/Mod-Website/main/modManager/src/main/resources/mods.json')
+        fetch('https://github.com/awesomeshot5051/Mod-Website/raw/refs/heads/main/modManager/src/main/resources/mods.json')
             .then(response => response.json())
             .then(data => {
                 const mods = data.mods;
@@ -194,6 +194,7 @@
         window.location.href = url;
     }
 </script>
+
 
 </body>
 </html>
