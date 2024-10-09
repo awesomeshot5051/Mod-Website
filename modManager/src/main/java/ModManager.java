@@ -10,16 +10,18 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.File;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
 public class ModManager extends Application {
 
-    private JSONObject modsData;
-    private final String JSON_FILE_PATH = "D:\\Mod Website\\Mod-Website\\modManager\\src\\main\\resources\\mods.json";
+    private JSONArray modsData;  // Changed to JSONArray for the new structure
+    private final String JSON_FILE_PATH = "D:\\Mod Website\\Mod-Website\\mods.json";
+    private GitCommitter gitCommitter;
 
     @Override
-    public void start(Stage primaryStage) {
+    public void start(Stage primaryStage) throws IOException {
         primaryStage.setTitle("Mod Manager");
 
         GridPane grid = new GridPane();
@@ -90,15 +92,15 @@ public class ModManager extends Application {
             }
         });
 
-
         // Add new mod action
         addModButton.setOnAction(e -> {
             String newModName = newModField.getText();
-            if (!newModName.isEmpty() && !modsData.has(newModName)) {
-                modsData.put(newModName, new JSONObject());
-                modsData.getJSONObject(newModName).put("name", newModName);
-                modsData.getJSONObject(newModName).put("image", "path/to/default/image.jpg");
-                modsData.getJSONObject(newModName).put("files", new JSONArray());
+            if (!newModName.isEmpty() && !modExists(newModName)) {
+                JSONObject newMod = new JSONObject();
+                newMod.put("name", newModName);
+                newMod.put("image", "path/to/default/image.jpg");
+                newMod.put("files", new JSONArray());
+                modsData.put(newMod);
                 modSelect.getItems().add(newModName);
                 newModField.clear();
                 saveJsonData();
@@ -124,6 +126,21 @@ public class ModManager extends Application {
             }
         });
 
+        // Initialize the GitCommitter with necessary information
+        gitCommitter = new GitCommitter("D:\\Mod Website\\Mod-Website",
+                "D:\\Mod Website\\Mod-Website\\modManager\\src\\main\\resources\\token.txt",
+                "awesomeshot5051",
+                "Mod-Website");
+
+        // When the app is closed, commit and push the changes
+        primaryStage.setOnCloseRequest(event -> {
+            try {
+                gitCommitter.commitAndPush("Automated mod update commit");
+            } catch (IOException | InterruptedException e) {
+                e.printStackTrace();
+            }
+        });
+
         Scene scene = new Scene(grid, 500, 300);
         primaryStage.setScene(scene);
         primaryStage.show();
@@ -131,13 +148,18 @@ public class ModManager extends Application {
 
     private void loadJsonData() {
         try {
-            String content = new String(Files.readAllBytes(Paths.get(JSON_FILE_PATH)));
-            modsData = new JSONObject(content);
+            String content = new String(Files.readAllBytes(Paths.get(JSON_FILE_PATH))).trim();
+            if (content.isEmpty() || !content.startsWith("[")) {
+                modsData = new JSONArray();  // Initialize to an empty array if invalid
+            } else {
+                modsData = new JSONArray(content);  // Load as JSONArray
+            }
         } catch (Exception e) {
-            modsData = new JSONObject();
+            modsData = new JSONArray();  // Initialize to an empty array on error
             e.printStackTrace();
         }
     }
+
 
     private void saveJsonData() {
         try {
@@ -149,34 +171,44 @@ public class ModManager extends Application {
 
     private void updateModSelection(ComboBox<String> modSelect) {
         modSelect.getItems().clear();
-        for (String modName : modsData.keySet()) {
-            modSelect.getItems().add(modName);
+        for (int i = 0; i < modsData.length(); i++) {
+            modSelect.getItems().add(modsData.getJSONObject(i).getString("name"));
         }
     }
 
-    private void addOrUpdateMod(String modName, String fileName, String modLoader, String downloadUrl) {
-        if (!modsData.has(modName)) {
-            modsData.put(modName, new JSONObject());
-            modsData.getJSONObject(modName).put("name", modName);
-            modsData.getJSONObject(modName).put("image", "path/to/default/image.jpg");
-            modsData.getJSONObject(modName).put("files", new JSONArray());
-        }
-
-        JSONArray files = modsData.getJSONObject(modName).getJSONArray("files");
-        JSONObject fileObj = new JSONObject();
-        fileObj.put("fileName", fileName);
-        fileObj.put("modLoader", modLoader);
-        fileObj.put("downloadUrl", downloadUrl);
-
-        // Remove existing entry with the same file name if it exists
-        for (int i = 0; i < files.length(); i++) {
-            if (files.getJSONObject(i).getString("fileName").equals(fileName)) {
-                files.remove(i);
-                break;
+    private boolean modExists(String modName) {
+        for (int i = 0; i < modsData.length(); i++) {
+            if (modsData.getJSONObject(i).getString("name").equals(modName)) {
+                return true;
             }
         }
+        return false;
+    }
 
-        files.put(fileObj);
+    private void addOrUpdateMod(String modName, String fileName, String modLoader, String downloadUrl) {
+        for (int i = 0; i < modsData.length(); i++) {
+            JSONObject mod = modsData.getJSONObject(i);
+            if (mod.getString("name").equals(modName)) {
+                JSONArray files = mod.getJSONArray("files");
+                JSONObject fileObj = new JSONObject();
+                fileObj.put("fileName", fileName);
+                fileObj.put("modLoader", modLoader);
+                fileObj.put("downloadUrl", downloadUrl);
+                // Add release date if needed
+                fileObj.put("releaseDate", "2024-10-08"); // Set this to the actual release date if applicable
+
+                // Remove existing entry with the same file name if it exists
+                for (int j = 0; j < files.length(); j++) {
+                    if (files.getJSONObject(j).getString("fileName").equals(fileName)) {
+                        files.remove(j);
+                        break;
+                    }
+                }
+
+                files.put(fileObj);
+                return;  // Exit after updating the mod
+            }
+        }
     }
 
     private void clearFields(TextField... fields) {
