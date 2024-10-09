@@ -108,74 +108,74 @@
     });
 
     function loadMods() {
-        fetch('https://awesomeshot5051.github.io/Mod-Website/mods.json')
-            .then(response => response.json())
-            .then(data => {
-                const mods = data.mods;
-                const modTabs = document.getElementById('modTabs');
-                const modContent = document.getElementById('modContent');
+    fetch('https://awesomeshot5051.github.io/Mod-Website/mods.json')
+        .then(response => response.json())
+        .then(mods => { // Changed here to directly use the array
+            const modTabs = document.getElementById('modTabs');
+            const modContent = document.getElementById('modContent');
 
-                mods.forEach((mod, index) => {
-                    // Create tab button
-                    const tabButton = document.createElement('button');
-                    tabButton.className = 'tablinks';
-                    tabButton.textContent = mod.name;
-                    tabButton.onclick = function () {
-                        openMod(index);
-                    };
-                    modTabs.appendChild(tabButton);
+            mods.forEach((mod, index) => {
+                // Create tab button
+                const tabButton = document.createElement('button');
+                tabButton.className = 'tablinks';
+                tabButton.textContent = mod.name;
+                tabButton.onclick = function () {
+                    openMod(index);
+                };
+                modTabs.appendChild(tabButton);
 
-                    // Create tab content
-                    const tabContent = document.createElement('div');
-                    tabContent.className = 'tab-content';
-                    tabContent.id = `mod${index}`;
+                // Create tab content
+                const tabContent = document.createElement('div');
+                tabContent.className = 'tab-content';
+                tabContent.id = `mod${index}`;
 
-                    // Add mod name and image
-                    const modTitle = document.createElement('h2');
-                    modTitle.textContent = mod.name;
-                    tabContent.appendChild(modTitle);
+                // Add mod name and image
+                const modTitle = document.createElement('h2');
+                modTitle.textContent = mod.name;
+                tabContent.appendChild(modTitle);
 
-                    const modImage = document.createElement('img');
-                    modImage.src = mod.image;
-                    modImage.alt = `${mod.name} Mod`;
-                    modImage.className = 'mod-image';
-                    tabContent.appendChild(modImage);
+                const modImage = document.createElement('img');
+                modImage.src = mod.image;
+                modImage.alt = `${mod.name} Mod`;
+                modImage.className = 'mod-image';
+                tabContent.appendChild(modImage);
 
-                    // Add mod file table
-                    const table = document.createElement('table');
-                    const thead = document.createElement('thead');
-                    thead.innerHTML = `
-                        <tr>
-                            <th>File Name</th>
-                            <th>Release Date</th>
-                            <th>Mod Loader</th>
-                            <th>Download</th>
-                        </tr>
+                // Add mod file table
+                const table = document.createElement('table');
+                const thead = document.createElement('thead');
+                thead.innerHTML = `
+                    <tr>
+                        <th>File Name</th>
+                        <th>Release Date</th>
+                        <th>Mod Loader</th>
+                        <th>Download</th>
+                    </tr>
+                `;
+                table.appendChild(thead);
+
+                const tbody = document.createElement('tbody');
+                mod.files.forEach(file => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${file.fileName}</td>
+                        <td class="release-date" data-file="${file.fileName}">${file.releaseDate}</td>
+                        <td>${file.modLoader}</td>
+                        <td><button class="download-btn" onclick="downloadMod('${file.downloadUrl}')">Download</button></td>
                     `;
-                    table.appendChild(thead);
-
-                    const tbody = document.createElement('tbody');
-                    mod.files.forEach(file => {
-                        const row = document.createElement('tr');
-                        row.innerHTML = `
-                            <td>${file.fileName}</td>
-                            <td class="release-date" data-file="${file.fileName}">${file.releaseDate}</td>
-                            <td>${file.modLoader}</td>
-                            <td><button class="download-btn" onclick="downloadMod('${file.downloadUrl}')">Download</button></td>
-                        `;
-                        tbody.appendChild(row);
-                    });
-                    table.appendChild(tbody);
-                    tabContent.appendChild(table);
-
-                    modContent.appendChild(tabContent);
+                    tbody.appendChild(row);
                 });
+                table.appendChild(tbody);
+                tabContent.appendChild(table);
 
-                // Activate the first mod tab
-                document.querySelector('.tablinks').click();
-            })
-            .catch(error => console.error('Error loading mod data:', error));
-    }
+                modContent.appendChild(tabContent);
+            });
+
+            // Activate the first mod tab
+            document.querySelector('.tablinks').click();
+        })
+        .catch(error => console.error('Error loading mod data:', error));
+}
+
 
     function openMod(index) {
         const tabContents = document.getElementsByClassName('tab-content');
