@@ -4,12 +4,6 @@
         "name": "Mob Farms",
         "files": [
             {
-                "fileName": "mob_farms-1.21.1-1.0.4.jar",
-                "releaseDate": "2024-10-13",
-                "downloadUrl": "https://github.com/awesomeshot5051/Mod-Website/raw/refs/heads/main/Mods/Mob%20Farms/mob_farms-1.21.1-1.0.4.jar",
-                "modLoader": "Neoforge"
-            },
-            {
                 "fileName": "mob_farms-1.21.1-1.0.3.jar",
                 "releaseDate": "2024-10-08",
                 "downloadUrl": "https://github.com/awesomeshot5051/Mod-Website/raw/refs/heads/main/Mods/Mob%20Farms/mob_farms-1.21.1-1.0.3.jar",
@@ -25,6 +19,12 @@
                 "fileName": "mob_farms-1.21.1-1.0.1.jar",
                 "releaseDate": "2024-10-03",
                 "downloadUrl": "https://github.com/awesomeshot5051/Mod-Website/raw/refs/heads/main/Mods/Mob%20Farms/mob_farms-1.21.1-1.0.1.jar",
+                "modLoader": "Neoforge"
+            },
+            {
+                "fileName": "mob_farms-1.21.1-1.0.4.jar",
+                "releaseDate": "2024-10-13",
+                "downloadUrl": "https://github.com/awesomeshot5051/Mod-Website/raw/refs/heads/main/Mods/Mob%20Farms/mob_farms-1.21.1-1.0.4.jar",
                 "modLoader": "Neoforge"
             }
         ]

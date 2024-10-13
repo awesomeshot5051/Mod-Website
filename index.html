@@ -107,15 +107,22 @@
         loadMods();
     });
 
-    function loadMods() {
+function loadMods() {
     fetch('https://awesomeshot5051.github.io/Mod-Website/mods.json')
         .then(response => response.json())
-        .then(mods => { // Changed here to directly use the array
+        .then(mods => {
+            // Sort mods by release date in descending order (newest first)
+            mods.sort((a, b) => {
+                const dateA = new Date(a.files[0].releaseDate);
+                const dateB = new Date(b.files[0].releaseDate);
+                return dateB - dateA; // Compare the dates
+            });
+
             const modTabs = document.getElementById('modTabs');
             const modContent = document.getElementById('modContent');
 
             mods.forEach((mod, index) => {
-                // Create tab button
+                // Create tab button and content
                 const tabButton = document.createElement('button');
                 tabButton.className = 'tablinks';
                 tabButton.textContent = mod.name;
@@ -124,12 +131,10 @@
                 };
                 modTabs.appendChild(tabButton);
 
-                // Create tab content
                 const tabContent = document.createElement('div');
                 tabContent.className = 'tab-content';
                 tabContent.id = `mod${index}`;
 
-                // Add mod name and image
                 const modTitle = document.createElement('h2');
                 modTitle.textContent = mod.name;
                 tabContent.appendChild(modTitle);
@@ -140,7 +145,6 @@
                 modImage.className = 'mod-image';
                 tabContent.appendChild(modImage);
 
-                // Add mod file table
                 const table = document.createElement('table');
                 const thead = document.createElement('thead');
                 thead.innerHTML = `
@@ -170,11 +174,11 @@
                 modContent.appendChild(tabContent);
             });
 
-            // Activate the first mod tab
             document.querySelector('.tablinks').click();
         })
         .catch(error => console.error('Error loading mod data:', error));
 }
+
 
 
     function openMod(index) {
