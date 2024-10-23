@@ -107,79 +107,79 @@
         loadMods();
     });
 
-function loadMods() {
-    fetch('https://awesomeshot5051.github.io/Mod-Website/mods.json')
-        .then(response => response.json())
-        .then(mods => {
-            // Sort mods by release date in descending order (newest first)
-            mods.sort((a, b) => {
-                const dateA = new Date(a.files[0].releaseDate);
-                const dateB = new Date(b.files[0].releaseDate);
-                return dateB - dateA; // Compare the dates
-            });
-
-            const modTabs = document.getElementById('modTabs');
-            const modContent = document.getElementById('modContent');
-
-            mods.forEach((mod, index) => {
-                // Create tab button and content
-                const tabButton = document.createElement('button');
-                tabButton.className = 'tablinks';
-                tabButton.textContent = mod.name;
-                tabButton.onclick = function () {
-                    openMod(index);
-                };
-                modTabs.appendChild(tabButton);
-
-                const tabContent = document.createElement('div');
-                tabContent.className = 'tab-content';
-                tabContent.id = `mod${index}`;
-
-                const modTitle = document.createElement('h2');
-                modTitle.textContent = mod.name;
-                tabContent.appendChild(modTitle);
-
-                const modImage = document.createElement('img');
-                modImage.src = mod.image;
-                modImage.alt = `${mod.name} Mod`;
-                modImage.className = 'mod-image';
-                tabContent.appendChild(modImage);
-
-                const table = document.createElement('table');
-                const thead = document.createElement('thead');
-                thead.innerHTML = `
-                    <tr>
-                        <th>File Name</th>
-                        <th>Release Date</th>
-                        <th>Mod Loader</th>
-                        <th>Download</th>
-                    </tr>
-                `;
-                table.appendChild(thead);
-
-                const tbody = document.createElement('tbody');
-                mod.files.forEach(file => {
-                    const row = document.createElement('tr');
-                    row.innerHTML = `
-                        <td>${file.fileName}</td>
-                        <td class="release-date" data-file="${file.fileName}">${file.releaseDate}</td>
-                        <td>${file.modLoader}</td>
-                        <td><button class="download-btn" onclick="downloadMod('${file.downloadUrl}')">Download</button></td>
-                    `;
-                    tbody.appendChild(row);
+    function loadMods() {
+        fetch('https://awesomeshot5051.github.io/Mod-Website/mods.json')
+            .then(response => response.json())
+            .then(mods => {
+                // Sort mods by release date in descending order (newest first)
+                mods.sort((a, b) => {
+                    const dateA = new Date(a.files[0].releaseDate);
+                    const dateB = new Date(b.files[0].releaseDate);
+                    return dateB - dateA; // Compare the dates
                 });
-                table.appendChild(tbody);
-                tabContent.appendChild(table);
 
-                modContent.appendChild(tabContent);
-            });
+                const modTabs = document.getElementById('modTabs');
+                const modContent = document.getElementById('modContent');
 
-            document.querySelector('.tablinks').click();
-        })
-        .catch(error => console.error('Error loading mod data:', error));
-}
+                mods.forEach((mod, index) => {
+                    // Create tab button and content
+                    const tabButton = document.createElement('button');
+                    tabButton.className = 'tablinks';
+                    tabButton.textContent = mod.name;
+                    tabButton.onclick = function () {
+                        openMod(index);
+                    };
+                    modTabs.appendChild(tabButton);
 
+                    const tabContent = document.createElement('div');
+                    tabContent.className = 'tab-content';
+                    tabContent.id = `mod${index}`;
 
+                    const modTitle = document.createElement('h2');
+                    modTitle.textContent = mod.name;
+                    tabContent.appendChild(modTitle);
+
+                    const modImage = document.createElement('img');
+                    modImage.src = mod.image;
+                    modImage.alt = `${mod.name} Mod`;
+                    modImage.className = 'mod-image';
+                    tabContent.appendChild(modImage);
+
+                    const table = document.createElement('table');
+                    const thead = document.createElement('thead');
+                    thead.innerHTML = `
+                        <tr>
+                            <th>File Name</th>
+                            <th>Release Date</th>
+                            <th>Mod Loader</th>
+                            <th>Minecraft Version</th>
+                            <th>Download</th>
+                        </tr>
+                    `;
+                    table.appendChild(thead);
+
+                    const tbody = document.createElement('tbody');
+                    mod.files.forEach(file => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td>${file.fileName}</td>
+                            <td class="release-date" data-file="${file.fileName}">${file.releaseDate}</td>
+                            <td>${file.modLoader}</td>
+                            <td>${file.minecraftVersion}</td>
+                            <td><button class="download-btn" onclick="downloadMod('${file.downloadUrl}')">Download</button></td>
+                        `;
+                        tbody.appendChild(row);
+                    });
+                    table.appendChild(tbody);
+                    tabContent.appendChild(table);
+
+                    modContent.appendChild(tabContent);
+                });
+
+                document.querySelector('.tablinks').click();
+            })
+            .catch(error => console.error('Error loading mod data:', error));
+    }
 
     function openMod(index) {
         const tabContents = document.getElementsByClassName('tab-content');
@@ -198,7 +198,6 @@ function loadMods() {
         window.location.href = url;
     }
 </script>
-
 
 </body>
 </html>
