@@ -4,6 +4,13 @@
         "name": "Mob Farms",
         "files": [
             {
+                "fileName": "mob_farms-1.21.3-1.2.0.jar",
+                "releaseDate": "2024-11-16",
+                "downloadUrl": "https://github.com/awesomeshot5051/Mod-Website/raw/refs/heads/main/Mods/Mob%20Farms/mob_farms-1.21.3-1.2.0.jar",
+                "modLoader": "NeoForge",
+                "minecraftVersion": "1.21.3"
+            },
+            {
                 "fileName": "mob_farms-1.21.2-1.0.6.jar",
                 "releaseDate": "2024-10-23",
                 "downloadUrl": "https://github.com/awesomeshot5051/Mod-Website/raw/refs/heads/main/Mods/Mob%20Farms/mob_farms-1.21.2-1.0.6.jar",
@@ -57,14 +64,12 @@
     {
         "image": "https://raw.githubusercontent.com/awesomeshot5051/Mod-Website/refs/heads/main/Pictures/shears.png",
         "name": "Shears Disable Tripwires",
-        "files": [
-            {
-                "fileName": "shearstripwiremod-0.0.1.jar",
-                "releaseDate": "2024-09-29",
-                "downloadUrl": "https://github.com/awesomeshot5051/Mod-Website/raw/refs/heads/main/Mods/Shears%20Disable%20Tripwires/shearstripwiremod-0.0.1.jar",
-                "modLoader": "Neoforge",
-                "minecraftVersion": "1.21.1"
-            }
-        ]
+        "files": [{
+            "fileName": "shearstripwiremod-0.0.1.jar",
+            "releaseDate": "2024-09-29",
+            "downloadUrl": "https://github.com/awesomeshot5051/Mod-Website/raw/refs/heads/main/Mods/Shears%20Disable%20Tripwires/shearstripwiremod-0.0.1.jar",
+            "modLoader": "Neoforge",
+            "minecraftVersion": "1.21.1"
+        }]
     }
 ]
