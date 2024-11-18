@@ -71,5 +71,15 @@
             "modLoader": "Neoforge",
             "minecraftVersion": "1.21.1"
         }]
+    },
+    {
+        "image": "https://raw.githubusercontent.com/awesomeshot5051/Mod-Website/refs/heads/main/Pictures/Plant Farms",
+        "name": "Plant Farms",
+        "files": [{
+            "fileName": "plant_farms-1.21.2-1.0.0.jar",
+            "releaseDate": "2024-11-17",
+            "downloadUrl": "https://github.com/awesomeshot5051/Mod-Website/raw/refs/heads/main/Mods/Plant%20Farms/plant_farms-1.21.2-1.0.0.jar",
+            "modLoader": "NeoForge"
+        }]
     }
 ]
