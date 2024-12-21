@@ -98,5 +98,16 @@
                 "minecraftVersion": "1.21.3"
             }
         ]
+    },
+    {
+        "image": "https://raw.githubusercontent.com/awesomeshot5051/Mod-Website/refs/heads/main/Pictures/ResourceFarms",
+        "name": "Resource Farms",
+        "files": [{
+            "fileName": "resource_farms-1.21.1-1.0.0.jar",
+            "releaseDate": "2024-12-21",
+            "downloadUrl": "https://github.com/awesomeshot5051/Mod-Website/raw/refs/heads/main/Mods/Resource%20Farms/resource_farms-1.21.1-1.0.0.jar",
+            "modLoader": "NeoForge",
+            "minecraftVersion": "1.21.1"
+        }]
     }
 ]
