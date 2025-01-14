@@ -4,6 +4,13 @@
         "name": "Mob Farms",
         "files": [
             {
+                "fileName": "mob_farms-1.21.1-2.0.0.jar",
+                "releaseDate": "2025-01-14",
+                "downloadUrl": "https://github.com/awesomeshot5051/Mod-Website/raw/refs/heads/main/Mods/Mob%20Farms/mob_farms-1.21.1-2.0.0.jar",
+                "modLoader": "Neoforge",
+                "minecraftVersion": "1.21.1"
+            },
+            {
                 "fileName": "mob_farms-1.21.3-1.2.0.jar",
                 "releaseDate": "2024-11-19",
                 "downloadUrl": "https://github.com/awesomeshot5051/Mod-Website/raw/refs/heads/main/Mods/Mob%20Farms/mob_farms-1.21.3-1.2.0.jar",
@@ -77,6 +84,13 @@
         "name": "Plant Farms",
         "files": [
             {
+                "fileName": "plant_farms-1.21.1-2.0.0.jar",
+                "releaseDate": "2025-01-14",
+                "downloadUrl": "https://github.com/awesomeshot5051/Mod-Website/raw/refs/heads/main/Mods/Plant%20Farms/plant_farms-1.21.1-2.0.0.jar",
+                "modLoader": "Neoforge",
+                "minecraftVersion": "1.21.1"
+            },
+            {
                 "fileName": "plant_farms-1.21.1-Server-1.0.0.jar",
                 "releaseDate": "2024-11-23",
                 "downloadUrl": "https://github.com/awesomeshot5051/Mod-Website/raw/refs/heads/main/Mods/Plant%20Farms/plant_farms-1.21.1-Server-1.0.0.jar",
@@ -102,12 +116,21 @@
     {
         "image": "https://raw.githubusercontent.com/awesomeshot5051/Mod-Website/refs/heads/main/Pictures/ResourceFarms.png",
         "name": "Resource Farms",
-        "files": [{
-            "fileName": "resource_farms-1.21.1-1.0.0.jar",
-            "releaseDate": "2024-12-21",
-            "downloadUrl": "https://github.com/awesomeshot5051/Mod-Website/raw/refs/heads/main/Mods/Resource%20Farms/resource_farms-1.21.1-1.0.0.jar",
-            "modLoader": "NeoForge",
-            "minecraftVersion": "1.21.1"
-        }]
+        "files": [
+            {
+                "fileName": "resource_farms-1.21.1-2.0.0.jar",
+                "releaseDate": "2025-01-14",
+                "downloadUrl": "https://github.com/awesomeshot5051/Mod-Website/raw/refs/heads/main/Mods/Resource%20Farms/resource_farms-1.21.1-2.0.0.jar",
+                "modLoader": "Neoforge",
+                "minecraftVersion": "1.21.1"
+            },
+            {
+                "fileName": "resource_farms-1.21.1-1.0.0.jar",
+                "releaseDate": "2024-12-21",
+                "downloadUrl": "https://github.com/awesomeshot5051/Mod-Website/raw/refs/heads/main/Mods/Resource%20Farms/resource_farms-1.21.1-1.0.0.jar",
+                "modLoader": "NeoForge",
+                "minecraftVersion": "1.21.1"
+            }
+        ]
     }
 ]
