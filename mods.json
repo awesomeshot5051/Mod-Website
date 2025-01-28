@@ -4,6 +4,13 @@
         "name": "Mob Farms",
         "files": [
             {
+                "fileName": "mob_farms-1.21.1-2.0.2.jar",
+                "releaseDate": "2025-01-28",
+                "downloadUrl": "https://uofnorthflorida-my.sharepoint.com/my?id=%2Fpersonal%2Fn01520193%5Funf%5Fedu%2FDocuments%2FMinecraft%20Mods%2FMob%20Farms",
+                "modLoader": "Neoforge",
+                "minecraftVersion": "1.21.1"
+            },
+            {
                 "fileName": "mob_farms-1.21.1-2.0.0.jar",
                 "releaseDate": "2025-01-20",
                 "downloadUrl": "https://uofnorthflorida-my.sharepoint.com/personal/n01520193_unf_edu/_layouts/15/download.aspx?UniqueId=c3c5448e%2D9df6%2D450a%2Da58c%2D4fedee51f1b4",
@@ -84,6 +91,13 @@
         "name": "Plant Farms",
         "files": [
             {
+                "fileName": "plant_farms-1.21.1-2.0.2.jar",
+                "releaseDate": "2025-01-28",
+                "downloadUrl": "https://uofnorthflorida-my.sharepoint.com/my?id=%2Fpersonal%2Fn01520193%5Funf%5Fedu%2FDocuments%2FMinecraft%20Mods%2FPlant%20Farms",
+                "modLoader": "NeoForge",
+                "minecraftVersion": "1.21.1"
+            },
+            {
                 "fileName": "plant_farms-1.21.1-2.0.0.jar",
                 "releaseDate": "2025-01-20",
                 "downloadUrl": "https://uofnorthflorida-my.sharepoint.com/personal/n01520193_unf_edu/_layouts/15/download.aspx?UniqueId=fc2cbd6c%2D30a3%2D4580%2Db16b%2D799ef33ff4fe",
@@ -117,6 +131,13 @@
         "image": "https://raw.githubusercontent.com/awesomeshot5051/Mod-Website/refs/heads/main/Pictures/ResourceFarms.png",
         "name": "Resource Farms",
         "files": [
+            {
+                "fileName": "resource_farms-1.21.1-2.0.2.jar",
+                "releaseDate": "2025-01-28",
+                "downloadUrl": "https://uofnorthflorida-my.sharepoint.com/my?id=%2Fpersonal%2Fn01520193%5Funf%5Fedu%2FDocuments%2FMinecraft%20Mods%2FResource%20Farms",
+                "modLoader": "NeoForge",
+                "minecraftVersion": "1.21.1"
+            },
             {
                 "fileName": "resource_farms-1.21.1-2.0.0.jar",
                 "releaseDate": "2025-01-20",
