@@ -1,11 +1,13 @@
 {
     "homepage": "https://www.curseforge.com/minecraft/mc-mods/mob-farms-neoforge/files/all?page=1&pageSize=20",
     "1.21.1": {
-        "2.0.3": "1.21.1-2.0.3"
+        "2.0.3": {
+            "modVersion": "1.21.1-2.0.3",
+            "changelog": "Fixed critical issues and improved performance."
+        }
     },
     "promos": {
         "1.21.1-latest": "2.0.3",
         "1.21.1-recommended": "2.0.3"
     }
 }
-
